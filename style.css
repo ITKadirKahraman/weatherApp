@@ -2,6 +2,10 @@
 ****** WEATHER HEADER
 */
 
+html, body {
+    background: rgb(0, 0, 128);
+}
+
 .header {
     display: flex;
     justify-content: center;
@@ -70,13 +74,18 @@ button:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 250px;
+    height: 150px;
     width: 450px;
-    margin-left: 28%;
     border: 2px solid;
     border-radius: 15px;
     padding: 0;
     background: beige;
+    margin-bottom: 20px;
+}
+
+#weatherContent {
+    display: flex;
+    justify-content: center;
 }
 
 .weatherHeader {
@@ -134,4 +143,54 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+/*
+****** FORECAST CARD
+*/
+
+.forecastCardSection {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 200px;
+    height: 120px;
+    padding: 0;
+    background: beige;
+    border-radius: 15px;
+    border: 2px solid;
+}
+
+.forecastCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#forecastContainer {
+    display: flex;
+    justify-content: center;
+}
+
+h4 {
+    margin: 0;
+    text-align: center;
+}
+
+.foreCastMiddle {
+    display: flex;
+    flex-direction: row;
+}
+
+.foreCastMiddleP {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.forecastText {
+    font-weight: 700;
+    text-align: center;
 }
