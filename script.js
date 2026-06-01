@@ -7,6 +7,7 @@ function init() {
     renderCitySearch();
     loadWeather();
     loadForecast();
+    renderFooter();
 }
 
 async function loadWeather() {
@@ -68,6 +69,10 @@ function renderForecast(data) {
         ${forecastHTML}
     </div>
     `;
+}
+
+function renderFooter() {
+    document.getElementById('footer').innerHTML = getFooter();
 }
 
 function enterKey() {

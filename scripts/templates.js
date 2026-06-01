@@ -1,11 +1,9 @@
 function getHeader() {
     return `
-    <header class="header">
-        <ul class="ulHeader">
-            <li><h1>WEATHER APP</h1></li>
-            <li><img class="headerLogo" src="./assets/icons/weatherLogo.svg" alt="Weather Image"></img></li>
-        </ul>
-    </header>
+    <ul class="ulHeader">
+        <li><h1>WEATHER APP</h1></li>
+        <li><img class="headerLogo" src="./assets/icons/weatherLogo.svg" alt="Weather Image"></img></li>
+    </ul>
     `;
 }
 
@@ -60,4 +58,10 @@ function getForecastCard(day) {
             </div>
         </div>
     </div>`;
+}
+
+function getFooter() {
+    return `
+    <p class="footerP">Kadir Kahraman</p>
+    `;
 }
