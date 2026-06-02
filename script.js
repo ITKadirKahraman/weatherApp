@@ -1,6 +1,6 @@
-const apiKey = 'd8f129575ed34702acb200347263005';
-const baseURL = 'https://api.weatherapi.com/v1/current.json';
-const forscastURL = 'https://api.weatherapi.com/v1/forecast.json';
+const apiKey = '';
+const baseURL = '';
+const forscastURL = '';
 
 function init() {
     renderHeader();
