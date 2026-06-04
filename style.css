@@ -81,6 +81,19 @@ button:hover {
     font-weight: 700;
 }
 
+.deleteBtn {
+    border: 2px solid;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: beige;
+}
+
+.deleteBtn:hover {
+    background-color: red;
+    border-color: black;
+    font-weight: 700;
+}
+
 /*
 ****** WEATHER CARD
 */
