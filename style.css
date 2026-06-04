@@ -33,18 +33,13 @@ header {
     background-color: beige;
 }
 
-.ulHeader {
-    list-style-type: none;
+h1 {
+    margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
     gap: 10px;
-}
-
-h1 {
-    margin: 0;
 }
 
 .headerLogo {
@@ -56,10 +51,10 @@ h1 {
 ****** SEARCH SECTION
 */
 
-.cityContainer {
+#searchCity {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     gap: 10px;
 }
 
@@ -170,23 +165,16 @@ p {
 ****** FORECAST CARD
 */
 
-.forecastCardSection {
+.forecast {
     display: flex;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     width: 200px;
     height: 120px;
     padding: 0;
     background: beige;
     border-radius: 15px;
     border: 2px solid;
-}
-
-.forecastCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
 }
 
 #forecastContainer {
@@ -202,6 +190,7 @@ h4 {
 .foreCastMiddle {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .foreCastMiddleP {
@@ -214,6 +203,38 @@ h4 {
 .forecastText {
     font-weight: 700;
     text-align: center;
+}
+
+/*
+***** SAFE
+*/
+
+.safeContainer {
+    height: 100px;
+    width: 200px;
+    border: 2px solid;
+    border-radius: 15px;
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#saveSearched {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.gridLayout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 /*
