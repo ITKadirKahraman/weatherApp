@@ -9,6 +9,7 @@ function getCity() {
     return `
         <input type="text" id="cityInput" value="Berlin" placeholder="Stadt eingeben" onclick="enterKey(), addCity()">
         <button onclick="loadWeather(), enterKey(), addCity()">Suche</button>
+        <button class="deleteBtn" onclick="deleteMessage()">Suche löschen</button>
     `;
 }
 
