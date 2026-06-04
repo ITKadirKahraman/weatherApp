@@ -1,13 +1,16 @@
-const apiKey = '';
-const baseURL = '';
-const forscastURL = '';
+const apiKey = 'd8f129575ed34702acb200347263005';
+const baseURL = 'https://api.weatherapi.com/v1/current.json';
+const forscastURL = 'https://api.weatherapi.com/v1/forecast.json';
+
+
+let citySearch = [];
 
 function init() {
-    renderHeader();
-    renderCitySearch();
+    getFromLocalStorage();
+    renderPage();
+    renderSaveCity();
     loadWeather();
     loadForecast();
-    renderFooter();
 }
 
 async function loadWeather() {
@@ -27,6 +30,8 @@ async function loadWeather() {
 
         renderWeather(data);
         loadForecast();
+        addCity(data);
+        renderSaveCity();
 
     } catch (error) {
         document.getElementById('weatherContent').innerHTML = `<p>${error.message}</p>`;
@@ -45,12 +50,10 @@ async function loadForecast() {
     }
 }
 
-function renderHeader() {
+function renderPage() {
     document.getElementById('header').innerHTML = getHeader();
-}
-
-function renderCitySearch() {
     document.getElementById('searchCity').innerHTML = getCity();
+    document.getElementById('footer').innerHTML = getFooter();
 }
 
 function renderWeather(data) {
@@ -65,14 +68,8 @@ function renderForecast(data) {
     }
 
     content.innerHTML = `
-    <div class="forecastCard">
         ${forecastHTML}
-    </div>
     `;
-}
-
-function renderFooter() {
-    document.getElementById('footer').innerHTML = getFooter();
 }
 
 function enterKey() {
@@ -84,4 +81,52 @@ function enterKey() {
             loadForecast();
         }
     })
+}
+
+function addCity(data) {
+    const cityData = {
+        name: data.location.name,
+        country: data.location.country,
+        temp: data.current.temp_c
+    }
+    if(!citySearch.some(city => city.name === cityData.name)){
+        citySearch.push(cityData);
+    }
+
+    saveToLocalStorage();
+    renderSaveCity();
+}
+
+function renderSaveCity() {
+    let contentRef = document.getElementById('saveSearched');
+    contentRef.innerHTML = "";
+    
+    for( const data of citySearch ) 
+    {
+        contentRef.innerHTML += getSaveContainer(data);
+        updateLayout();
+    }
+}
+
+function updateLayout() {
+    let contentRef = document.getElementById('saveSearched');
+    if(citySearch.length > 4){
+        contentRef.classList.add("gridLayout");
+    }
+}
+
+function loadSavedCity(data) {
+    document.getElementById('cityInput').value = data;
+    loadWeather();
+}
+
+function saveToLocalStorage() {
+    localStorage.setItem("city", JSON.stringify(citySearch));
+}
+
+function getFromLocalStorage() {
+    let getData = localStorage.getItem("city");
+    if(getData){
+        citySearch = JSON.parse(getData);
+    }
 }
