@@ -1,18 +1,14 @@
 function getHeader() {
     return `
-    <ul class="ulHeader">
-        <li><h1>WEATHER APP</h1></li>
-        <li><img class="headerLogo" src="./assets/icons/weatherLogo.svg" alt="Weather Image"></img></li>
-    </ul>
+        <h1>WEATHER APP</h1>
+        <img class="headerLogo" src="./assets/icons/weatherLogo.svg" alt="Weather Image"></img>
     `;
 }
 
 function getCity() {
     return `
-    <div class="cityContainer">
-        <input type="text" id="cityInput" value="Berlin" placeholder="Stadt eingeben" onclick="enterKey()">
-        <button onclick="loadWeather(), enterKey()">Suche</button>
-    </div>
+        <input type="text" id="cityInput" value="Berlin" placeholder="Stadt eingeben" onclick="enterKey(), addCity()">
+        <button onclick="loadWeather(), enterKey(), addCity()">Suche</button>
     `;
 }
 
@@ -46,18 +42,25 @@ function getWeatherCard(data) {
 
 function getForecastCard(day) {
     return `
-    <div class="forecastCardSection">
-        <div class="forecastCard">
-            <div class="forecast">
-                <h4>${day.date}</h4>
-                <div class="foreCastMiddle">
-                    <img src="https:${day.day.condition.icon}" alt="Forecast">
-                    <p class="foreCastMiddleP">${day.day.avgtemp_c}°C</p>
-                </div>
-                <p class="forecastText">${day.day.condition.text}</p>
+        <div class="forecast">
+            <h4>${day.date}</h4>
+            <div class="foreCastMiddle">
+                <img src="https:${day.day.condition.icon}" alt="Forecast">
+                <p class="foreCastMiddleP">${day.day.avgtemp_c}°C</p>
             </div>
+            <p class="forecastText">${day.day.condition.text}</p>
         </div>
-    </div>`;
+    `;
+}
+
+function getSaveContainer(data) {
+    return `
+    <div class="safeContainer" onclick="loadSavedCity('${data.name}')">
+        <h3>${data.name}</h3>
+        <h5>${data.country}</h5>
+        <p>${data.temp} °C</p>
+    </div>
+    `;
 }
 
 function getFooter() {
